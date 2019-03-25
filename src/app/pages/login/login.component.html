@@ -1,0 +1,35 @@
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <!--Login-->
+          <div class="form-group">
+            <label>Login</label>
+            <input type="text" formControlName="login" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.login.errors }" />
+            <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
+              <div *ngIf="f.login.errors.required">Campo obrigatório</div>
+            </div>
+          </div>
+
+          <!--Senha-->
+          <div class="form-group">
+            <label>Senha</label>
+            <input type="password" formControlName="password" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Campo obrigatório</div>
+              <div *ngIf="f.password.errors.minlength">Senha deve possuir o minimo de 6 caracteres</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary">Acessar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

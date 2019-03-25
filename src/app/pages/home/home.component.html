@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        Escolha uma opção
+        <div class="row">
+          <a [routerLink]="['/usuarios']">Novo usuário</a>
+        </div>
+
+        <div class="row" *ngIf="usuario && usuario.TipoPermissao == 1 ">
+          <a [routerLink]="['/tarefas']">Admin de tarefas</a>
+        </div>
+
+        <div class="row">
+          <a [routerLink]="['/login']">Sair</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
